@@ -3,7 +3,7 @@
     <div class="absolute left-1 bottom-1 text-gray-400 text-xs">
       Moab, Utah
       <br />
-      Mesa Arch April 2021
+      Mesa Arch - April 2021
     </div>
   </div>
 </template>
@@ -21,9 +21,6 @@ export default class Header extends Vue {}
   background: url(../assets/background.jpeg);
   background-size: cover;
   height: 30em;
-  border-bottom: solid;
-  border-width: 1px;
-  border-color: #dadada;
   background-position: 50% 50%;
 
   &__text {

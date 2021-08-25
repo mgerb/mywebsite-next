@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+$linkColor: #3598db;
+
+html {
+  font-family: Roboto Slab, serif;
+  -webkit-font-smoothing: antialiased;
+  font-weight: 350;
+  overflow-x: hidden;
+}
+
+body {
+  position: relative;
+  overflow: hidden;
+}
+
+a {
+  background-color: transparent;
+  color: $linkColor;
+  text-decoration: none;
+  &:hover {
+    color: $linkColor;
+  }
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+.link {
+  position: relative;
+  &:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    bottom: 0;
+    left: 0;
+    background-color: #3598db;
+    visibility: hidden;
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+    -webkit-transition: all 0.2s ease-in-out 0s;
+    transition: all 0.2s ease-in-out 0s;
+  }
+  &:hover:before,
+  &--active:before {
+    visibility: visible;
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+  }
+}
