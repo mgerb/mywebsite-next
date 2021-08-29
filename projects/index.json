@@ -1,0 +1,11 @@
+[
+	{
+		"name": "mywebsite-next",
+		"description": "My personal website.",
+		"markdownFile": "personal-website.md"
+	},
+	{
+		"name": "ServerStatus",
+		"description": "Discord bot that monitors servers."
+	}
+]
