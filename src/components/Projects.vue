@@ -1,23 +1,38 @@
 <template>
   <div>
-    <div class="item" v-for="(item, index) in projects" :key="index">
-      <h2>{{ item.name }}</h2>
-      <p>{{ item.description }}</p>
-    </div>
+    <github-project
+      class="item"
+      v-for="(project, index) in allProjects"
+      v-bind:key="index"
+      :project="project"
+    ></github-project>
   </div>
 </template>
 
 <script lang="ts">
-import { Vue } from "vue-class-component";
+import { Options, Vue } from "vue-class-component";
 import { ProjectsService } from "@/services";
-import { IProject } from "@/model/project";
+import { IAllProjectData } from "@/model/project";
+import GithubProject from "@/components/github/GithubProject.vue";
+import { mergeMap } from "rxjs/operators";
 
+@Options({
+  components: {
+    GithubProject,
+  },
+})
 export default class Projects extends Vue {
-  public projects: IProject[] = [];
+  public allProjects: IAllProjectData[] = [];
   mounted(): void {
-    ProjectsService.getProjects().then((projects) => {
-      this.projects = projects;
-    });
+    ProjectsService.getProjects()
+      .pipe(
+        mergeMap((projects) => {
+          return ProjectsService.getAllProjectData(projects || []);
+        })
+      )
+      .subscribe((allProjects) => {
+        this.allProjects = allProjects;
+      });
   }
 }
 </script>

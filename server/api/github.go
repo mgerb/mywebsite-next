@@ -28,8 +28,8 @@ func initGithubRoutes(router *gin.RouterGroup) {
 		c.JSON(http.StatusOK, colors)
 	})
 
-	router.GET("/project/:userName/:projectName", githubProjectHandler)
-	router.GET("/project/:userName/:projectName/:additionalInfo", githubProjectHandler)
+	router.GET("/:userName/:projectName", githubProjectHandler)
+	router.GET("/:userName/:projectName/:additionalInfo", githubProjectHandler)
 }
 
 func githubProjectHandler(c *gin.Context) {

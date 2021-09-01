@@ -1,39 +1,82 @@
-import { IProject } from "@/model/project";
-import Axios from "axios";
+import { IAllProjectData, IGithubLanguage, IProject } from "@/model/project";
+import { combineLatest, Observable, of } from "rxjs";
+import { map, mergeMap } from "rxjs/operators";
+import { HttpService } from "./http.service";
 
 class _ProjectsService {
-  public getProjects(): Promise<IProject[]> {
-    return new Promise((resolve) => {
-      Axios.get<IProject[]>("/api/projects").then((resp) => {
-        resolve(resp.data);
-      });
-    });
+  private readonly GITHUB_USERNAME = "mgerb";
+
+  public getProjects(): Observable<IProject[] | undefined> {
+    return HttpService.get("/api/projects");
   }
 
-  public getGithubColors(): Promise<any> {
-    return new Promise((resolve) => {
-      Axios.get("/api/github/colors").then((resp) => {
-        resolve(resp.data);
-      });
-    });
+  public getGithubColors(): Observable<
+    | {
+        [key: string]: { color: string; url: string };
+      }
+    | undefined
+  > {
+    return HttpService.get("/api/github/colors");
   }
 
   /**
    * Path e.g. mgerb/mywebsite-next/languages
    */
-  public getGithubProject(
+  public getGithubProject<T>(
     userName: string,
     projectName: string,
     additionalInfo?: string
-  ): Promise<any> {
+  ): Observable<T | undefined> {
     const path = [userName, projectName, additionalInfo]
       .filter((n) => !!n)
       .join("/");
-    return new Promise((resolve) => {
-      Axios.get(`/api/github/${path}`).then((resp) => {
-        resolve(resp.data);
-      });
-    });
+    return HttpService.get<T>(`/api/github/${path}`);
+  }
+
+  public getAllProjectData(
+    projects: IProject[]
+  ): Observable<IAllProjectData[]> {
+    const projects$ = projects.map((p) =>
+      combineLatest([
+        of(p),
+        this.getGithubProject(this.GITHUB_USERNAME, p.name),
+        this.getGithubProject<{ [key: string]: number }>(
+          this.GITHUB_USERNAME,
+          p.name,
+          "languages"
+        ),
+      ])
+    );
+
+    return this.getGithubColors().pipe(
+      mergeMap((colors) => {
+        return combineLatest(projects$).pipe(
+          map((p) => {
+            return p.map(([project, githubProject, languages]) => ({
+              project,
+              githubProject,
+              languages: this.processLanguages(languages!, colors!),
+            }));
+          })
+        );
+      })
+    ) as any;
+  }
+
+  /**
+   * Parse languages and colors into usable format
+   */
+  private processLanguages(
+    languages: { [key: string]: number },
+    colors: { [key: string]: { color: string } }
+  ): IGithubLanguage[] {
+    const totalWeight = Object.values(languages).reduce((a, b) => a + b, 0);
+    return Object.keys(languages).map((k) => ({
+      name: k,
+      weight: languages[k],
+      color: colors[k]?.color,
+      percentage: +((languages[k] / totalWeight) * 100).toFixed(2),
+    }));
   }
 }
 

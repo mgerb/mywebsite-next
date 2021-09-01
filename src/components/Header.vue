@@ -20,7 +20,7 @@ export default class Header extends Vue {}
   width: 100%;
   background: url(../assets/background.jpeg);
   background-size: cover;
-  height: 30em;
+  height: 20em;
   background-position: 50% 50%;
 
   &__text {

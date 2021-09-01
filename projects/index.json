@@ -1,11 +1,59 @@
 [
-	{
-		"name": "mywebsite-next",
-		"description": "My personal website.",
-		"markdownFile": "personal-website.md"
-	},
-	{
-		"name": "ServerStatus",
-		"description": "Discord bot that monitors servers."
-	}
+  {
+    "name": "ServerStatus"
+  },
+  {
+    "name": "mgphoto"
+  },
+  {
+    "name": "top-of-reddit"
+  },
+  {
+    "name": "tmail"
+  },
+  {
+    "name": "ps-launcher"
+  },
+  {
+    "name": "classic-wow-forums"
+  },
+  {
+    "name": "ioctl-read-write-memory"
+  },
+  {
+    "name": "clip-n-ship"
+  },
+  {
+    "name": "shadowply"
+  },
+  {
+    "name": "go-discord-bot"
+  },
+  {
+    "name": "raspberrypi_rain_sensor"
+  },
+  {
+    "name": "mgdiscord"
+  },
+  {
+    "name": "livestreamfailsapp"
+  },
+  {
+    "name": "mywebsite"
+  },
+  {
+    "name": "icons"
+  },
+  {
+    "name": "mgcrypt"
+  },
+  {
+    "name": "wbu-server"
+  },
+  {
+    "name": "wbuRewrite"
+  },
+  {
+    "name": "esp8266_rgb_websocket"
+  }
 ]

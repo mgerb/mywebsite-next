@@ -2,7 +2,7 @@
   <Header />
 
   <div class="home__body ml-auto mr-auto md:relative flex pr-2 pl-2">
-    <div class="p-4 flex-1">
+    <div class="p-4 flex-1 min-w-0">
       <div class="flex space-between items-center">
         <div class="flex-1">
           <router-link to="projects" class="link text-3xl">
@@ -24,7 +24,6 @@
 
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
-import Languages from "@/components/Languages.vue";
 import AboutMe from "@/components/AboutMe.vue";
 import Header from "@/components/Header.vue";
 import { Mutations } from "@/store";
@@ -33,7 +32,6 @@ import { Mutations } from "@/store";
   components: {
     AboutMe,
     Header,
-    Languages,
   },
 })
 export default class Home extends Vue {
