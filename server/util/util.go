@@ -7,10 +7,10 @@ import (
 )
 
 type Project struct {
-	Name        *string
-	Description *string
+	Name        *string `json:"name"`
+	Description *string `json:"description"`
 	// optional
-	MarkdownFile *string
+	MarkdownFile *string `json:"markdownFile"`
 }
 
 func ParseProjects() []Project {
