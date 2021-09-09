@@ -11,7 +11,7 @@
     ></div>
   </div>
 
-  <div class="-ml-4 flex flex-wrap font-normal" :style="{ width: '250px' }">
+  <div class="-ml-4 flex flex-wrap font-normal">
     <div
       class="ml-4 flex items-center"
       v-for="(language, index) in project.languages"
@@ -43,8 +43,9 @@ export default class GithubLanguages extends Vue {
 
   public getSortedLangs(): IGithubLanguage[] {
     return (
-      this.project?.languages.sort((a, b) => (a.weight > b.weight ? -1 : 1)) ||
-      []
+      this.project?.languages
+        .sort((a, b) => (a.weight > b.weight ? -1 : 1))
+        .filter((l) => l.percentage > 1) || []
     );
   }
 }
@@ -52,7 +53,6 @@ export default class GithubLanguages extends Vue {
 
 <style lang="scss" scoped>
 .lang-bar {
-  width: 250px;
   height: 8px;
   display: flex;
   overflow: hidden;

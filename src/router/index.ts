@@ -1,7 +1,8 @@
+import Blog from "@/components/blog/Blog.vue";
+import ProjectDescription from "@/components/projects/ProjectDescription.vue";
+import Projects from "@/components/projects/Projects.vue";
+import Home from "@/views/Home.vue";
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
-import Blog from "../components/Blog.vue";
-import Projects from "../components/Projects.vue";
-import Home from "../views/Home.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -13,6 +14,13 @@ const routes: Array<RouteRecordRaw> = [
       {
         path: "projects",
         component: Projects,
+      },
+      {
+        path: "projects/:projectName",
+        component: ProjectDescription,
+        beforeEnter: () => {
+          window.scrollTo({ top: 0 });
+        },
       },
       {
         path: "blog",

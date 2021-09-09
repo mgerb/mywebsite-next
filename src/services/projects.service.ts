@@ -1,13 +1,18 @@
 import { IAllProjectData, IGithubLanguage, IProject } from "@/model/project";
 import { combineLatest, Observable, of } from "rxjs";
-import { map, mergeMap } from "rxjs/operators";
+import { map, mergeMap, tap } from "rxjs/operators";
 import { HttpService } from "./http.service";
 
 class _ProjectsService {
   private readonly GITHUB_USERNAME = "mgerb";
+  private allProjectCache?: IAllProjectData[];
 
   public getProjects(): Observable<IProject[] | undefined> {
     return HttpService.get("/api/projects");
+  }
+
+  public getMarkdown(fileName: string): Observable<string | undefined> {
+    return HttpService.get<string>(`/markdown/${fileName}`);
   }
 
   public getGithubColors(): Observable<
@@ -33,24 +38,27 @@ class _ProjectsService {
     return HttpService.get<T>(`/api/github/${path}`);
   }
 
-  public getAllProjectData(
-    projects: IProject[]
-  ): Observable<IAllProjectData[]> {
-    const projects$ = projects.map((p) =>
-      combineLatest([
-        of(p),
-        this.getGithubProject(this.GITHUB_USERNAME, p.name),
-        this.getGithubProject<{ [key: string]: number }>(
-          this.GITHUB_USERNAME,
-          p.name,
-          "languages"
-        ),
-      ])
-    );
+  public getAllProjectData(): Observable<IAllProjectData[]> {
+    if (this.allProjectCache) {
+      return of(this.allProjectCache);
+    }
 
-    return this.getGithubColors().pipe(
-      mergeMap((colors) => {
-        return combineLatest(projects$).pipe(
+    const getProjectData = (projects: any[]) =>
+      projects.map((p) =>
+        combineLatest([
+          of(p),
+          this.getGithubProject(this.GITHUB_USERNAME, p.name),
+          this.getGithubProject<{ [key: string]: number }>(
+            this.GITHUB_USERNAME,
+            p.name,
+            "languages"
+          ),
+        ])
+      );
+
+    return combineLatest([this.getProjects(), this.getGithubColors()]).pipe(
+      mergeMap(([projects, colors]) => {
+        return combineLatest(getProjectData(projects || [])).pipe(
           map((p) => {
             return p.map(([project, githubProject, languages]) => ({
               project,
@@ -59,6 +67,9 @@ class _ProjectsService {
             }));
           })
         );
+      }),
+      tap((allProjectData) => {
+        this.allProjectCache = allProjectData as any;
       })
     ) as any;
   }

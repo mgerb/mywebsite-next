@@ -1,59 +1,79 @@
 [
   {
-    "name": "ServerStatus"
+    "name": "ServerStatus",
+    "description": "Test description",
+    "markdownFile": "sample-markdown.md"
   },
   {
-    "name": "mgphoto"
+    "name": "mgphoto",
+    "description": ""
   },
   {
-    "name": "top-of-reddit"
+    "name": "top-of-reddit",
+    "description": ""
   },
   {
-    "name": "tmail"
+    "name": "tmail",
+    "description": ""
   },
   {
-    "name": "ps-launcher"
+    "name": "ps-launcher",
+    "description": ""
   },
   {
-    "name": "classic-wow-forums"
+    "name": "classic-wow-forums",
+    "description": ""
   },
   {
-    "name": "ioctl-read-write-memory"
+    "name": "ioctl-read-write-memory",
+    "description": ""
   },
   {
-    "name": "clip-n-ship"
+    "name": "clip-n-ship",
+    "description": ""
   },
   {
-    "name": "shadowply"
+    "name": "shadowply",
+    "description": ""
   },
   {
-    "name": "go-discord-bot"
+    "name": "go-discord-bot",
+    "description": ""
   },
   {
-    "name": "raspberrypi_rain_sensor"
+    "name": "raspberrypi_rain_sensor",
+    "description": ""
   },
   {
-    "name": "mgdiscord"
+    "name": "mgdiscord",
+    "description": ""
   },
   {
-    "name": "livestreamfailsapp"
+    "name": "livestreamfailsapp",
+    "description": ""
   },
   {
-    "name": "mywebsite"
+    "name": "mywebsite",
+    "description": ""
   },
   {
-    "name": "icons"
+    "name": "icons",
+    "description": ""
   },
   {
-    "name": "mgcrypt"
+    "name": "mgcrypt",
+    "description": ""
   },
   {
-    "name": "wbu-server"
+    "name": "wbu-server",
+    "description": ""
   },
   {
-    "name": "wbuRewrite"
+    "name": "wbuRewrite",
+    "description": ""
   },
   {
-    "name": "esp8266_rgb_websocket"
+    "name": "esp8266_rgb_websocket",
+    "description": ""
   }
 ]

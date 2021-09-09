@@ -8,6 +8,52 @@
       <img src="../assets/me.jpeg" />
     </div>
     <div class="px-2 mt-2">
+      <div class="flex justify-between">
+        <div>
+          <p class="flex items-center">
+            <home-icon />
+            <router-link
+              to="/projects"
+              class="link ml-1"
+              v-on:click="onLinkClick"
+            >
+              Home
+            </router-link>
+          </p>
+          <p class="flex items-center">
+            <atom-icon />
+            <router-link to="/blog" class="link ml-1" v-on:click="onLinkClick">
+              Blog
+            </router-link>
+          </p>
+        </div>
+        <div class="flex flex-col items-end">
+          <p class="flex items-center">
+            <a
+              href="https://github.com/mgerb"
+              class="link mr-1"
+              target="_blank"
+            >
+              Github
+            </a>
+            <github-icon />
+          </p>
+          <p class="flex items-center">
+            <a href="mailto:mgerb42@gmail.com" class="link mr-1">Email</a>
+            <mail-icon />
+          </p>
+          <p class="flex items-center">
+            <a
+              href="https://www.linkedin.com/in/mitchell-gerber-125391b3/"
+              class="link mr-1"
+              target="_blank"
+            >
+              LinkedIn
+            </a>
+            <linkedin-icon />
+          </p>
+        </div>
+      </div>
       <p>
         My name is Mitchell and I have a passion for software development. I am
         currently a software engineer and enjoy working on personal projects in
@@ -20,34 +66,7 @@
           class="link"
           target="_blank"
         >
-          here
-        </a>
-        .
-      </p>
-      <p class="flex items-center">
-        <home-icon />
-        <router-link to="/" class="link ml-1" v-on:click="onHomeClick">
-          Home
-        </router-link>
-      </p>
-      <p class="flex items-center">
-        <github-icon />
-        <a href="https://github.com/mgerb" class="link ml-1" target="_blank">
-          Github
-        </a>
-      </p>
-      <p class="flex items-center">
-        <mail-icon />
-        <a href="mailto:mgerb42@gmail.com" class="link ml-1">Email</a>
-      </p>
-      <p class="flex items-center">
-        <linkedin-icon />
-        <a
-          href="https://www.linkedin.com/in/mitchell-gerber-125391b3/"
-          class="link ml-1"
-          target="_blank"
-        >
-          LinkedIn
+          here.
         </a>
       </p>
     </div>
@@ -67,6 +86,7 @@ import MailIcon from "@/components/icons/MailIcon.vue";
 import LinkedinIcon from "@/components/icons/LinkedinIcon.vue";
 import MenuIcon from "@/components/icons/MenuIcon.vue";
 import { Mutations } from "@/store";
+import AtomIcon from "@/components/icons/AtomIcon.vue";
 
 @Options({
   components: {
@@ -75,13 +95,15 @@ import { Mutations } from "@/store";
     MailIcon,
     LinkedinIcon,
     MenuIcon,
+    AtomIcon,
   },
 })
 export default class AboutMe extends Vue {
   menuClick(): void {
     this.$store.commit(Mutations.TOGGLE_ABOUT_ME);
   }
-  onHomeClick(): void {
+  onLinkClick(): void {
+    this.$store.commit(Mutations.SET_PROJECT_PAGE_SCROLL_TOP, 0);
     this.$store.commit(Mutations.TOGGLE_ABOUT_ME, false);
   }
 }
