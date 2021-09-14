@@ -108,7 +108,7 @@ Sample text here...
 
 Syntax highlighting
 
-```js
+```ts
 var foo = function (bar) {
   return bar++;
 };

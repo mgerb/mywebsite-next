@@ -26,6 +26,7 @@ func Init(router *gin.Engine) {
 		c.JSON(http.StatusOK, util.ParseProjects())
 	})
 
+	initBlogRoutes(api.Group("/blog"))
 	initGithubRoutes(api.Group("/github"))
 
 	router.NoRoute(func(c *gin.Context) {

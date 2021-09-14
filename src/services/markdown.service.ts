@@ -1,18 +1,19 @@
+import hljs from "highlight.js";
 import marked from "marked";
 
 class _MarkdownService {
-  private renderer = new marked.Renderer();
-
   constructor() {
-    this.renderer.list = (body, ordered) => {
-      const tag = ordered ? "ol" : "ul";
-      const cl = ordered ? "list-decimal" : "list-disc";
-      return `<${tag} class="${cl}">${body}</${tag}>`;
-    };
+    marked.setOptions({
+      highlight: (code, lang) => {
+        return lang
+          ? hljs.highlight(code, { language: lang, ignoreIllegals: true }).value
+          : code;
+      },
+    });
   }
 
   public render(s: string): string {
-    return marked(s, { renderer: this.renderer });
+    return marked(s);
   }
 }
 

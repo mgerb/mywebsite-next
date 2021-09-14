@@ -1,3 +1,5 @@
+@import "~highlight.js/styles/github.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -17,6 +19,12 @@ body {
   overflow: hidden;
   // this is only required for the about me panel on small screens
   min-height: 800px;
+}
+
+// override tailwind "pose" styles to display our highlight.js styles for <pre><code> blocks
+pre {
+  color: inherit !important;
+  background-color: #f6f8fa !important;
 }
 
 a {

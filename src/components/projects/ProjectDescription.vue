@@ -5,7 +5,7 @@
     <template v-if="markdownData">
       <hr />
 
-      <div v-html="markdownData"></div>
+      <div v-html="markdownData" class="prose"></div>
     </template>
   </div>
 </template>

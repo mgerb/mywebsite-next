@@ -62,7 +62,8 @@
   },
   {
     "name": "mgcrypt",
-    "description": ""
+    "description": "",
+    "markdownFile": "mgcrypt.md"
   },
   {
     "name": "wbu-server",
