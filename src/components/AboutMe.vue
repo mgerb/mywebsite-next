@@ -103,7 +103,7 @@ export default class AboutMe extends Vue {
     this.$store.commit(Mutations.TOGGLE_ABOUT_ME);
   }
   onLinkClick(): void {
-    this.$store.commit(Mutations.SET_PROJECT_PAGE_SCROLL_TOP, 0);
+    this.$store.commit(Mutations.SET_SCROLL_TOP, 0);
     this.$store.commit(Mutations.TOGGLE_ABOUT_ME, false);
   }
 }

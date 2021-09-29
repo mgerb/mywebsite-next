@@ -9,16 +9,13 @@ export abstract class ScrollerComponent extends Vue {
   protected handleScrolling(): void {
     setTimeout(() => {
       // timeout needed to wait for content to render before setting scroll position
-      window.scrollTo({ top: this.$store.state.projectPageScrollTop });
+      window.scrollTo({ top: this.$store.state.scrollTop });
 
       // must set this after scrolling otherwise race condition occurs
       fromEvent(window, "scroll")
         .pipe(takeUntil(this.unsubscribe$))
         .subscribe(() => {
-          this.$store.commit(
-            Mutations.SET_PROJECT_PAGE_SCROLL_TOP,
-            window.scrollY
-          );
+          this.$store.commit(Mutations.SET_SCROLL_TOP, window.scrollY);
         });
     });
   }

@@ -1,9 +1,6 @@
 # Top of Reddit
 
-I created a Github repo that records the top Reddit posts every
-day. It's called
-[Top of Reddit](https://github.com/mgerb/top-of-reddit).
-I was inspired to do this from [another repo that keeps track of Github's trending projects](https://github.com/josephyzhou/github-trending).
+I created a Github repo that records the top Reddit posts every day. It's called [Top of Reddit](https://github.com/mgerb/top-of-reddit). I was inspired to do this from [another repo that keeps track of Github's trending projects](https://github.com/josephyzhou/github-trending).
 
 ---
 

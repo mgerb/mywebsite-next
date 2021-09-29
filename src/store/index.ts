@@ -2,20 +2,20 @@ import { createStore } from "vuex";
 
 export class Mutations {
   static TOGGLE_ABOUT_ME = "toggleAboutMe";
-  static SET_PROJECT_PAGE_SCROLL_TOP = "setProjectPageScrollTop";
+  static SET_SCROLL_TOP = "setScrollTop";
 }
 
 export default createStore({
   state: {
     aboutMeOpen: false,
-    projectPageScrollTop: 0,
+    scrollTop: 0,
   },
   mutations: {
     [Mutations.TOGGLE_ABOUT_ME](state, open) {
       state.aboutMeOpen = open !== undefined ? open : !state.aboutMeOpen;
     },
-    [Mutations.SET_PROJECT_PAGE_SCROLL_TOP](state, scrollTop) {
-      state.projectPageScrollTop = scrollTop;
+    [Mutations.SET_SCROLL_TOP](state, scrollTop) {
+      state.scrollTop = scrollTop;
     },
   },
   actions: {},

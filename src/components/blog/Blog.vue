@@ -1,8 +1,14 @@
 <template>
   <div>
-    <h1 class="text-3xl">Blog</h1>
-    <hr class="my-4" />
-    <loading-icon />
+    <div v-for="(intro, index) in blogIntros" v-bind:key="index" class="mb-6">
+      <h1 class="text-3xl mb-2">{{ intro.title }}</h1>
+      <p class="mb-2" v-html="intro.descriptionHTML"></p>
+      <div>
+        <router-link :to="'/' + intro.filePath" class="link">
+          continue reading...
+        </router-link>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -10,6 +16,8 @@
 import { Options } from "vue-class-component";
 import LoadingIcon from "@/components/icons/LoadingIcon.vue";
 import { ScrollerComponent } from "@/components/abstract/ScrollerComponent";
+import { BlogService } from "@/services";
+import { IBlogIntro } from "@/model/blog";
 
 @Options({
   components: {
@@ -17,8 +25,13 @@ import { ScrollerComponent } from "@/components/abstract/ScrollerComponent";
   },
 })
 export default class Blog extends ScrollerComponent {
+  public blogIntros: IBlogIntro[] = [];
+
   mounted(): void {
-    this.handleScrolling();
+    BlogService.getBlogIntroductions().subscribe((blogIntros) => {
+      this.blogIntros = blogIntros || [];
+      this.handleScrolling();
+    });
   }
 }
 </script>

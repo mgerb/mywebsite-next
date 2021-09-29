@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-wrap mb-12 justify-between">
     <div class="mb-4" :style="{ width: '250px' }">
-      <h1 class="text-2xl mb-2">
+      <h2 class="text-2xl mb-2">
         <router-link
           v-if="!disableLink"
           :to="'/projects/' + project.githubProject.name"
@@ -17,7 +17,7 @@
         >
           {{ project.githubProject.name }}
         </a>
-      </h1>
+      </h2>
       <div class="mb-2">
         <github-languages v-bind:project="project" />
       </div>

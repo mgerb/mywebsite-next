@@ -3,7 +3,7 @@ import { Store } from "vuex";
 declare module "@vue/runtime-core" {
   interface State {
     aboutMeOpen: boolean;
-    projectPageScrollTop: number;
+    scrollTop: number;
   }
 
   interface ComponentCustomProperties {

@@ -1,4 +1,5 @@
 import Blog from "@/components/blog/Blog.vue";
+import BlogPost from "@/components/blog/BlogPost.vue";
 import ProjectDescription from "@/components/projects/ProjectDescription.vue";
 import Projects from "@/components/projects/Projects.vue";
 import Home from "@/views/Home.vue";
@@ -25,6 +26,14 @@ const routes: Array<RouteRecordRaw> = [
       {
         path: "blog",
         component: Blog,
+      },
+      {
+        path: "blog/:folder/:name",
+        alias: "post/:folder/:name", // preserve urls from old site
+        component: BlogPost,
+        beforeEnter: () => {
+          window.scrollTo({ top: 0 });
+        },
       },
     ],
   },

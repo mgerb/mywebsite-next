@@ -4,7 +4,7 @@ I worked on my first native iOS app with Swift! [Check out the source here](http
 
 Unfortunately I was unable to release the app, but overall it was a great learning experience.
 
-![Live Stream Fails](/public/posts/images/livestreamfails.png)
+![Live Stream Fails](/static/blog/images/livestreamfails.png)
 
 ---
 

@@ -33,11 +33,10 @@ export default class Projects extends ScrollerComponent {
   public loading = true;
 
   public mounted(): void {
-    this.handleScrolling();
-
     ProjectsService.getAllProjectData().subscribe({
       next: (allProjects) => {
         this.allProjects = allProjects;
+        this.handleScrolling();
       },
       complete: () => {
         this.loading = false;

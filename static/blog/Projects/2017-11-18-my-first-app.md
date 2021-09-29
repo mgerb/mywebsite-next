@@ -21,7 +21,7 @@ I've open sourced both the front and back end to this project. Check them out he
 
 [Back End](https://github.com/mgerb/wbu-server)
 
-![Where Bar You](/public/posts/images/wherebaryou.png)
+![Where Bar You](/static/blog/images/wherebaryou.png)
 
 ## The Idea
 

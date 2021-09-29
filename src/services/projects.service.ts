@@ -12,7 +12,7 @@ class _ProjectsService {
   }
 
   public getMarkdown(fileName: string): Observable<string | undefined> {
-    return HttpService.get<string>(`/markdown/${fileName}`);
+    return HttpService.get<string>(`/static/markdown/${fileName}`);
   }
 
   public getGithubColors(): Observable<
