@@ -1,7 +1,10 @@
 <template>
   <div>
     <div v-for="(intro, index) in blogIntros" v-bind:key="index" class="mb-6">
-      <h1 class="text-3xl mb-2">{{ intro.title }}</h1>
+      <div class="flex justify-between">
+        <h1 class="text-3xl mb-2 mr-2">{{ intro.title }}</h1>
+        <span class="text-xs whitespace-nowrap">{{ intro.date }}</span>
+      </div>
       <p class="mb-2" v-html="intro.descriptionHTML"></p>
       <div>
         <router-link :to="'/' + intro.filePath" class="link">

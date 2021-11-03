@@ -1,11 +1,16 @@
 <template>
   <div>
-    <h1 class="text-3xl">Projects</h1>
+    <h1 class="text-3xl mb-2">Personal Projects</h1>
+    <p>
+      Some of these have been used by other people, while others are just a
+      playground for experimentation. I take each one as a learning opportunity
+      and enjoy creating useful tools.
+    </p>
     <hr class="my-4" />
     <loading-icon v-if="loading" />
     <template v-if="!loading">
       <github-project
-        class="item"
+        class="item mb-12"
         v-for="(project, index) in allProjects"
         v-bind:key="index"
         :project="project"

@@ -17,7 +17,7 @@
               class="link ml-1"
               v-on:click="onLinkClick"
             >
-              Home
+              Projects
             </router-link>
           </p>
           <p class="flex items-center">

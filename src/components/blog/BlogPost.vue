@@ -24,7 +24,7 @@ export default class BlogPost extends Vue {
     const { folder, name }: any = this.$route.params;
     BlogService.getBlogPost(folder, name).subscribe((blogPost) => {
       if (blogPost) {
-        this.markdownData = MarkdownService.render(blogPost);
+        this.markdownData = MarkdownService.render(blogPost, true);
       }
     });
   }

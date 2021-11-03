@@ -1,80 +1,92 @@
 [
   {
     "name": "ServerStatus",
-    "description": "Test description",
-    "markdownFile": "sample-markdown.md"
+    "description": "A Discord bot to display the status of servers",
+    "markdownFile": "serverstatus.md"
+  },
+  {
+    "name": "mywebsite-next",
+    "description": "The latest iteration of my personal website (this site)",
+    "markdownFile": "mywebsite-next.md"
   },
   {
     "name": "mgphoto",
-    "description": ""
+    "description": "A simple command line photo import tool. I typically use Adobe Lightroom to import my photos and I wanted something similar I could do from the command line."
   },
   {
     "name": "top-of-reddit",
-    "description": ""
+    "description": "Scrapes all reddit posts that make it to the front page of r/all and stores them in a markdown file. This is updated daily.",
+    "markdownFile": "top-of-reddit.md"
   },
   {
     "name": "tmail",
-    "description": ""
+    "description": "A throwaway SMTP server with a built in API",
+    "markdownFile": "tmail.md"
   },
   {
     "name": "ps-launcher",
-    "description": ""
+    "description": "A launcher for World of Warcraft private servers",
+    "markdownFile": "ps-launcher.md"
   },
   {
     "name": "classic-wow-forums",
-    "description": ""
+    "description": "I remade the World of Warcraft forums as they were back in 2005",
+    "markdownFile": "classic-wow-forums.md"
   },
   {
     "name": "ioctl-read-write-memory",
-    "description": ""
+    "description": "Windows kernel driver to read and write user process memory. I created this project following my interest in game hacking and reverse engineering."
   },
   {
     "name": "clip-n-ship",
-    "description": ""
+    "description": "Very simple Electron desktop app wrapper around FFMPEG. Allows trimming video clips and exporting audio."
   },
   {
     "name": "shadowply",
-    "description": ""
+    "description": "Experimental project to record the screen on Windows",
+    "markdownFile": "shadowply.md"
   },
   {
     "name": "go-discord-bot",
-    "description": ""
+    "description": "Discord bot to play and record sound clips",
+    "markdownFile": "go-discord-bot.md"
   },
   {
     "name": "raspberrypi_rain_sensor",
-    "description": ""
+    "description": "A small script to record and display rain data in the web browser. Data is meant to be collected from a switch attached to GPIO pins. Each reading represents 1/100 inches of rain. Data is grouped by the day and displays in a table."
   },
   {
     "name": "mgdiscord",
-    "description": ""
+    "description": "Discord bot that plays everything",
+    "markdownFile": "mgdiscord.md"
   },
   {
     "name": "livestreamfailsapp",
-    "description": ""
+    "description": "My first Swift iOS app development experience",
+    "markdownFile": "livestreamfailsapp.md"
   },
   {
     "name": "mywebsite",
-    "description": ""
+    "description": "Previous iteration of this website written with Go + React"
   },
   {
     "name": "icons",
-    "description": ""
+    "description": "Custom icons I made with Inkscape"
   },
   {
     "name": "mgcrypt",
-    "description": "",
-    "markdownFile": "mgcrypt.md"
+    "description": "Simple AES file encryption tool"
   },
   {
     "name": "wbu-server",
-    "description": ""
+    "description": "Back end for my first React Native iOS chat app"
   },
   {
     "name": "wbuRewrite",
-    "description": ""
+    "description": "Front end for my first React Native iOS chat app"
   },
   {
     "name": "esp8266_rgb_websocket",
-    "description": ""
+    "description": "Control RGB LED lights from a web UI with a ESP8266 microcontroller"
   }
 ]

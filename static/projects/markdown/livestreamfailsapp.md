@@ -1,10 +1,5 @@
-# Another iOS App
-
-I worked on my first native iOS app with Swift! [Check out the source here](https://github.com/mgerb/livestreamfailsapp).
-
-Unfortunately I was unable to release the app, but overall it was a great learning experience.
-
-![Live Stream Fails](/static/blog/images/livestreamfails.png)
+A Swift app I worked on that ultimately didn't get published in the App Store, but was a fun learning experience.
+The following is from a post I wrote about this a few years ago.
 
 ---
 

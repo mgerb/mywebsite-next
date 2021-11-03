@@ -1,16 +1,8 @@
 <template>
-  <div class="flex flex-wrap mb-12 justify-between">
-    <div class="mb-4" :style="{ width: '250px' }">
+  <div class="md:flex flex-wrap justify-between">
+    <div class="mb-4 md:w-60">
       <h2 class="text-2xl mb-2">
-        <router-link
-          v-if="!disableLink"
-          :to="'/projects/' + project.githubProject.name"
-          class="link break-all"
-        >
-          {{ project.githubProject.name }}
-        </router-link>
         <a
-          v-if="disableLink"
           v-bind:href="project.githubProject.html_url"
           target="_blank"
           class="link"
@@ -24,8 +16,18 @@
       <github-star-button v-bind:project="project" />
     </div>
 
-    <div>
-      {{ project.project.description }}
+    <div class="flex-1 md:max-w-md md:text-right mb-2">
+      <div v-bind:class="{ 'mb-2': !disableLink }">
+        {{ project.project.description }}
+      </div>
+      <div v-if="!!project.project.markdownFile && !disableLink">
+        <router-link
+          :to="'/projects/' + project.githubProject.name"
+          class="link break-all"
+        >
+          read more...
+        </router-link>
+      </div>
     </div>
   </div>
 </template>

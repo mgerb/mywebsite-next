@@ -1,11 +1,10 @@
 <template>
   <div>
-    <github-project v-if="project" :project="project" disable-link="true" />
+    <github-project v-if="project" :project="project" :disable-link="true" />
 
     <template v-if="markdownData">
-      <hr />
-
-      <div v-html="markdownData" class="prose"></div>
+      <hr class="mb-2" />
+      <div v-html="markdownData" class="prose max-w-none"></div>
     </template>
   </div>
 </template>
@@ -44,7 +43,7 @@ export default class ProjectDescription extends Vue {
           this.project?.project.markdownFile
         ).subscribe((markdownData) => {
           if (markdownData) {
-            this.markdownData = MarkdownService.render(markdownData);
+            this.markdownData = MarkdownService.render(markdownData, true);
           }
         });
       }

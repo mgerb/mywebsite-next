@@ -39,8 +39,7 @@ func initStatic(router *gin.Engine) {
 	router.Static("/js", "./dist/js")
 	router.Static("/img", "./dist/img")
 	router.StaticFile("/favicon.ico", "./dist/favicon.ico")
-	router.Static("/static/markdown", "./static/projects/markdown")
-	router.Static("/static/blog", "./static/blog")
+	router.Static("/static", "./static")
 }
 
 func clearCache() {
