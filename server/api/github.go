@@ -9,6 +9,7 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
+	"github.com/mgerb/mywebsite-next/server/config"
 )
 
 const GITHUB_PROJECT_BASE = "https://api.github.com/repos/"
@@ -89,7 +90,17 @@ func getGithubProject(user, projectName, additionalInfo string) (map[string]inte
 		url += "/" + additionalInfo
 	}
 
-	resp, err := http.Get(url)
+	request, err := http.NewRequest("GET", url, nil)
+
+	if err != nil {
+		return project, err
+	}
+
+	request.SetBasicAuth(config.Config.GithubUsername, config.Config.GithubPassword)
+
+	client := http.Client{}
+
+	resp, err := client.Do(request)
 
 	if err != nil {
 		return project, err
